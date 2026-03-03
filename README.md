@@ -10,6 +10,8 @@ yoloV1/
 |-- README.md
 |-- requirements.txt
 |-- .gitignore
+|-- inputs/
+|   `-- .gitkeep
 |-- configs/
 |   `-- deepspace_dataset.yaml
 |-- data/
@@ -75,9 +77,25 @@ En Windows, el script usa `workers=0` por defecto para evitar bloqueos del datal
 
 4. Prueba una imagen local:
 
+Coloca la imagen en `inputs/`, por ejemplo `inputs/mi_prueba.jpg`, y ejecuta:
+
 ```powershell
-python src/predict.py --source ruta\a\tu_imagen.jpg
+python src/predict.py --weights runs/deepspace_yolov8n_rtx4050_w0_ep10/weights/best.pt --source inputs/mi_prueba.jpg --save
 ```
+
+La imagen anotada se guardara en `outputs/predict/`.
+
+5. Abre una interfaz grafica simple:
+
+```powershell
+python src/gui.py
+```
+
+La interfaz permite:
+- seleccionar cualquier imagen con un explorador de archivos
+- usar automaticamente el ultimo modelo encontrado en `runs/`
+- ajustar la confianza minima
+- guardar y previsualizar la imagen anotada
 
 ## Punto importante del dataset actual
 

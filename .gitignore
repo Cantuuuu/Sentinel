@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 DeepSpaceYoloDataset.zip
+inputs/*
+!inputs/.gitkeep
 
 data/raw/
 data/yolo/
